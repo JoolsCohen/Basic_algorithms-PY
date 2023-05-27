@@ -6,6 +6,7 @@
 4 4 -> 2 2
 5 6 -> 2 3
 """
+s, p = map(int, input().split())
 sum = int(input('Сумма чисел х и у равна '))
 prod = int(input('Произведение чисел х и у равно '))
 if sum < 1 or sum > 1000 or prod < 1 or prod > 1000:
@@ -18,3 +19,11 @@ for i in range(sum):
                 flag = True
 if flag == False:
     print("Введенные чиса не соответствуют условию задачи, введите другие числа")
+
+# sum_ = int(input('Сумма чисел х и у равна '))
+# prod = int(input('Произведение чисел х и у равно '))
+# # sum_ = n1 + n2
+# # prod = n1 * n2
+# x = (sum_-int((sum_**2-4*prod)**0.5))//2
+# y = (sum_+int((sum_**2-4*prod)**0.5))//2
+# print(x, y)
