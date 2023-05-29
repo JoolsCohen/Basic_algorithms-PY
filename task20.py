@@ -64,3 +64,7 @@ print(result)
 #             if i in points_ru[j]:
 #                 count = count + j
 # print(count)
+
+
+
+
