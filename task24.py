@@ -10,32 +10,38 @@
 Напишите программу для нахождения максимального числа ягод, которое может собрать за один заход собирающий модуль,
 находясь перед некоторым кустом заданной во входном файле грядки.
 4 -> 1 2 3 4
-9'''
-
-from random import randint
-tree = list(randint(0, 10) for i in range(int(input('Сколько всего кустов: ')))) #list comprehension
-print(tree)
-a = int(input('С какого куста начнем: '))
-berries = 0
-if a == 1:
-    berries = tree[0] + tree[1] + tree[-1]
-elif a == len(tree):
-    berries = tree[-2] + tree[-1] + tree[0]
-else:
-    berries = tree[a-1] + tree[a-2] + tree[a]
-print(berries, 'ягод')
+9
 '''
-2 вариант решения (оптимальный)
 
-n = int(input())
-arr = list()
+# Первое решение (куст определяется автоматически)
+import random
+tree = []
+n = int(input('Сколько всего кустов: '))
 for i in range(n):
-    x = int(input())
-    arr.append(x)
+    tree.append(random.randint(0, 10))
+print(tree)
+maxberries = 0
+for i in range(n):
+    curberries = sum(tree[i:i+3])
+    if curberries > maxberries:
+        maxberries = curberries
+if tree[0] + tree[-1] + tree[-2] > maxberries:
+    maxberries = tree[0] + tree[-1] + tree[-2]
+if tree[0] + tree[1] + tree[-1] > maxberries:
+    maxberries = tree[0] + tree[1] + tree[-1]
 
-arr_count = list()
-for i in range(len(arr) - 1):
-    arr_count.append(arr[i - 1] + arr[i]+arr[i + 1])
-arr_count.append(arr[-2]+arr[-1]+arr[0])
-print(max(arr_count))   
-'''
+print(maxberries, 'ягод')
+
+ # Второе решение (с выбором куста)
+# from random import randint
+# tree = list(randint(0, 10) for i in range(int(input('Сколько всего кустов: ')))) #list comprehension
+# print(tree)
+# a = int(input('С какого куста начнем: '))
+# berries = 0
+# if a == 1:
+#     berries = tree[0] + tree[1] + tree[-1]
+# elif a == len(tree):
+#     berries = tree[-2] + tree[-1] + tree[0]
+# else:
+#     berries = tree[a-1] + tree[a-2] + tree[a]
+# print(berries, 'ягод')
