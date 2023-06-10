@@ -39,7 +39,6 @@ def print_operation_table(operation, num_rows=6, num_columns=6):
         print('ОЩИБКА! Размерности таблицы должны быть больше 2!')
     else:  # '  ' разделитель между элементами
         print('\t'.join([str(i) for i in range(1, num_columns + 1)]))  # первая строка просто заполняется 1,2,3,4,5,6
-        print()
         for i in range(2, num_rows + 1):
             print(i, end='\t')  # print(i, end = '\t') означает, что следующий i будет через 'таб'
             for j in range(2, num_columns + 1):
